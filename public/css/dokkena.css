@@ -1,0 +1,417 @@
+/* =========================================================
+   Dokkena — thème clair et minimaliste
+   Chargé APRÈS css/style.css du template Restoran :
+   il remplace les couleurs sombres et orange sans modifier
+   les fichiers d'origine.
+   ========================================================= */
+
+:root {
+    --dk-bg: #FAF9F6;          /* fond crème */
+    --dk-surface: #FFFFFF;     /* cartes */
+    --dk-soft: #F3F1EC;        /* fonds secondaires */
+    --dk-border: #ECEAE5;      /* bordures fines */
+    --dk-text: #1F2328;        /* texte principal */
+    --dk-muted: #6B6F76;       /* texte secondaire */
+    --dk-blue: #1E5AA8;        /* bleu Sidi Bou Saïd : actions */
+    --dk-blue-dark: #174A8C;
+    --dk-blue-soft: #E8EFF8;
+    --dk-terracotta: #C4623F;  /* prix */
+    --dk-terracotta-soft: #F8EAE4;
+    --dk-olive: #6B8F4E;       /* disponibilité */
+    --dk-olive-soft: #EEF3E8;
+    --dk-radius: 12px;
+
+    /* variables du template */
+    --primary: var(--dk-blue);
+    --light: var(--dk-bg);
+    --dark: var(--dk-text);
+}
+
+/* ---------- Base ---------- */
+body {
+    background: var(--dk-bg);
+    color: var(--dk-text);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+}
+
+h1, h2, h3, h4, .display-4, .section-heading {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    color: var(--dk-text);
+    letter-spacing: -0.01em;
+}
+
+h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: var(--dk-text);
+}
+
+a { color: var(--dk-blue); }
+a:hover { color: var(--dk-blue-dark); }
+
+.text-primary { color: var(--dk-blue) !important; }
+.bg-primary { background-color: var(--dk-blue) !important; }
+.border-primary { border-color: var(--dk-blue) !important; }
+
+#spinner { background: var(--dk-bg); }
+
+.eyebrow {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--dk-blue);
+}
+
+.lead-soft { font-size: 1.1rem; color: var(--dk-muted); }
+.text-muted-soft { color: var(--dk-muted); }
+.section-heading { font-size: 2.2rem; }
+.rounded-soft { border-radius: var(--dk-radius) !important; }
+
+/* ---------- Boutons ---------- */
+.btn {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    text-transform: none;
+    border-radius: 10px;
+    transition: .2s;
+}
+
+.btn-primary {
+    background: var(--dk-blue);
+    border-color: var(--dk-blue);
+    color: #FFFFFF;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background: var(--dk-blue-dark);
+    border-color: var(--dk-blue-dark);
+    color: #FFFFFF;
+}
+
+.btn-outline-primary {
+    color: var(--dk-blue);
+    border-color: var(--dk-blue);
+}
+
+.btn-outline-primary:hover {
+    background: var(--dk-blue);
+    border-color: var(--dk-blue);
+    color: #FFFFFF;
+}
+
+.btn-light-outline {
+    background: var(--dk-surface);
+    border: 1px solid var(--dk-border);
+    color: var(--dk-text);
+}
+
+.btn-light-outline:hover {
+    border-color: var(--dk-text);
+    color: var(--dk-text);
+}
+
+.btn-primary:disabled,
+.btn-primary.disabled {
+    background: var(--dk-blue);
+    border-color: var(--dk-blue);
+    color: #FFFFFF;
+    opacity: .45;
+}
+
+/* caché tant que l'on n'a pas défilé (main.js l'affiche) */
+.btn.back-to-top {
+    display: none;
+    border-radius: 50% !important;
+    line-height: 48px;
+    text-align: center;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+    border-bottom: 1px solid var(--dk-border);
+}
+
+.navbar-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-mark {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--dk-blue);
+    color: #FFFFFF;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+}
+
+.brand-name {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--dk-text);
+}
+
+.navbar-light .navbar-nav .nav-link {
+    position: relative;
+    margin-left: 28px;
+    padding: 28px 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--dk-muted);
+    transition: .2s;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link.active {
+    color: var(--dk-text);
+}
+
+/* lien actif : petit trait bleu sous le lien */
+.navbar-light .navbar-nav .nav-link.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 18px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--dk-blue);
+}
+
+.sticky-top.navbar-light .navbar-nav .nav-link { padding: 20px 0; }
+.sticky-top.navbar-light .navbar-nav .nav-link.active::after { bottom: 10px; }
+
+@media (max-width: 991.98px) {
+    .navbar-light .navbar-nav .nav-link {
+        margin-left: 0;
+        padding: 10px 0;
+    }
+
+    .navbar-light .navbar-nav .nav-link.active::after { display: none; }
+    .navbar-light .navbar-nav { margin: 12px 0; }
+}
+
+.navbar-light .navbar-toggler {
+    border: 1px solid var(--dk-border);
+    color: var(--dk-text);
+}
+
+/* ---------- Bannière d'accueil et en-têtes de page ---------- */
+.hero {
+    background: var(--dk-bg);
+}
+
+.hero h1 { line-height: 1.15; }
+
+.hero-image {
+    border-radius: 50%;
+    max-width: 480px;
+}
+
+.page-header {
+    background: var(--dk-soft);
+    border-bottom: 1px solid var(--dk-border);
+}
+
+.page-header h1 { font-size: 2.6rem; }
+
+.breadcrumb-soft {
+    font-size: 14px;
+}
+
+.breadcrumb-soft .breadcrumb-item + .breadcrumb-item::before { color: var(--dk-muted); }
+.breadcrumb-soft .breadcrumb-item.active { color: var(--dk-muted); }
+
+/* ---------- Atouts ---------- */
+.feature-item {
+    height: 100%;
+    padding: 28px 24px;
+    background: var(--dk-surface);
+    border: 1px solid var(--dk-border);
+    border-radius: var(--dk-radius);
+    transition: .2s;
+}
+
+.feature-item:hover { border-color: var(--dk-blue); }
+.feature-item p { color: var(--dk-muted); font-size: 15px; }
+
+/* ---------- Carte d'un plat ---------- */
+.dish-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--dk-surface);
+    border: 1px solid var(--dk-border);
+    border-radius: var(--dk-radius);
+    overflow: hidden;
+    transition: .2s;
+}
+
+.dish-card:hover {
+    border-color: #D9D5CD;
+    transform: translateY(-2px);
+}
+
+.dish-card-image {
+    display: block;
+    aspect-ratio: 4 / 3;
+    background: var(--dk-soft);
+}
+
+.dish-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.dish-card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 18px 20px 20px;
+}
+
+.dish-card-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.dish-card-title a { color: var(--dk-text); }
+.dish-card-title a:hover { color: var(--dk-blue); }
+
+.dish-card-text {
+    font-size: 14px;
+    color: var(--dk-muted);
+    margin-bottom: 16px;
+}
+
+.dish-photo {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border: 1px solid var(--dk-border);
+}
+
+.price {
+    font-weight: 600;
+    color: var(--dk-terracotta);
+}
+
+.price-lg { font-size: 1.6rem; }
+
+/* ---------- Badges ---------- */
+.badge-soft {
+    display: inline-flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 999px;
+}
+
+.badge-blue { background: var(--dk-blue-soft); color: var(--dk-blue-dark); }
+.badge-terracotta { background: var(--dk-terracotta-soft); color: #9A4528; }
+.badge-olive { background: var(--dk-olive-soft); color: #4F6B38; }
+
+/* ---------- Statistiques (À propos) ---------- */
+.stat {
+    padding: 16px 20px;
+    border-left: 3px solid var(--dk-blue);
+    background: var(--dk-surface);
+    border-radius: 0;
+}
+
+.stat-number {
+    display: block;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--dk-blue);
+}
+
+.stat-label { color: var(--dk-muted); font-size: 14px; }
+
+/* ---------- Formulaires ---------- */
+.form-card,
+.contact-info {
+    background: var(--dk-surface);
+    border: 1px solid var(--dk-border);
+    border-radius: var(--dk-radius);
+    padding: 28px;
+}
+
+.form-control {
+    border: 1px solid var(--dk-border);
+    border-radius: 10px;
+    background: var(--dk-bg);
+}
+
+.form-control:focus {
+    border-color: var(--dk-blue);
+    box-shadow: 0 0 0 3px var(--dk-blue-soft);
+    background: var(--dk-surface);
+}
+
+.form-floating > label { color: var(--dk-muted); }
+
+.recap dt {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--dk-muted);
+}
+
+.recap dd {
+    margin-bottom: 14px;
+    white-space: pre-line;
+}
+
+/* ---------- Pied de page ---------- */
+.footer {
+    background: var(--dk-surface);
+    border-top: 1px solid var(--dk-border);
+    color: var(--dk-muted);
+}
+
+.footer .footer-title {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 18px;
+}
+
+.footer .btn.btn-link {
+    display: block;
+    margin-bottom: 6px;
+    padding: 0;
+    text-align: left;
+    color: var(--dk-muted);
+    font-weight: 400;
+    text-transform: none;
+    font-size: 15px;
+}
+
+.footer .btn.btn-link::before { display: none; }
+.footer .btn.btn-link:hover { color: var(--dk-blue); letter-spacing: normal; box-shadow: none; }
+
+.footer .copyright {
+    padding: 24px 0;
+    font-size: 14px;
+    border-top: 1px solid var(--dk-border);
+    color: var(--dk-muted);
+}
+
+.footer .copyright a {
+    color: var(--dk-text);
+    border-bottom: 1px solid var(--dk-border);
+}
